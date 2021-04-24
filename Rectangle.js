@@ -1,13 +1,8 @@
-
-let id = null;
-clearInterval(id);
-id = setInterval(this.start,10);
-
 class Rectangle {
     constructor(x, y, width, heigth, img) {
         this.x = x;
         this.y = y;
-        this.speed = 50;
+        this.speed = 10;
         this.width = width;
         this.heigth = heigth;
         this.canvas = document.getElementById('myCanvas');
@@ -57,21 +52,41 @@ class Rectangle {
     }
 
     clear() {
-        this.ctx.clearRect(0,0,this.canvas.width, this.canvas.height);
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
     start() {
         this.clear();
-        this.draw();
-        // if (this.x >= 0 && this.y >= 0) {
-        //             this.moveLeft();
-        // } else if (this.x >= 0 && this.y === 0) {
-        //     this.moveUp();
-        // } else if (this.x === 0 && this.y === 0) {
-        //     this.moveRight();
-        // } else if (this.x === 0 && this.y === (450)) {
-        //     this.moveDown();
-        // }
+        if ((this.x + this.y) < 700 && this.x > 0 && this.y > 0 && this.x < 450 && this.y < 250) {
+            this.moveLeft();
+            console.log(this.x + this.y)
+        }
+        if (this.x === 0 && this.y > 0) {
+            this.moveUp();
+        }
+        if (this.x === 0 && this.y === 0) {
+            this.moveRight();
+        }
+        if (this.y === 0 && this.x < 450) {
+            this.moveRight();
+        }
+        if (this.x === 450 && this.y === 0) {
+            this.moveDown();
+        }
+        if (this.x === 450 && this.y < 250) {
+            this.moveDown();
+        }
+        if (this.x === 450 && this.y === 250) {
+            this.moveLeft();
+        }
+        if (this.x > 0 && this.y === 250) {
+            this.moveLeft();
+        }
+        this.draw()
     }
+
 }
+
+
+
 

@@ -7,24 +7,21 @@
 </head>
 <body>
 
-<canvas id="myCanvas" style="border: 1px solid black" width="500" height="300"></canvas>
-<p>
-    <button onclick="">Click Me</button>
-</p>
-
+<canvas id="myCanvas" style="border: 1px solid black ; background-color: #ff7a62" width="500" height="300"  ></canvas>
 <script src="Rectangle.js"></script>
 <script>
     let image = new Image();
     image.src = 'img/nobita.gif ';
-    let moveObject = new Rectangle(200,100,50,50,image);
-    // window.addEventListener('keydown', function (evt) {
-    //
-    //     moveObject.move(evt);
-    // })
-    moveObject.start();
+    let moveObject = new Rectangle(100,100,50,50,image);
+    function start1(){
+        moveObject.start()
+    }
+      // moveObject.draw();
 
-    // setInterval(moveObject.start,100);
-    // console.log(moveObject.canvas.height);
+    setInterval(start1,100);
+     // window.addEventListener('keydown', function (evt) {
+     //    moveObject.move(evt);}
+     //    )
 
 
 
